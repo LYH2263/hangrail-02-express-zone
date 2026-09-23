@@ -277,4 +277,60 @@ button {
   border: 1px solid #a8876a; color: #fff; font-size: 11px;
   display: flex; align-items: center; justify-content: center;
   padding: 0 4px; overflow: hidden; white-space: nowrap;
+  z-index: 2;
 }
+
+/* —— 快递加急专区 —— */
+.zone-band {
+  position: absolute; top: 0; bottom: 0; z-index: 1;
+  background: repeating-linear-gradient(
+    45deg, rgba(232, 168, 124, .26), rgba(232, 168, 124, .26) 6px,
+    rgba(232, 168, 124, .10) 6px, rgba(232, 168, 124, .10) 12px
+  );
+  border-left: 1px dashed var(--hang-copper);
+  border-right: 1px dashed var(--hang-copper);
+}
+.seg--express {
+  background: linear-gradient(180deg, #e8a87c 0%, #c47a44 100%);
+  border: 1px solid #ffd9b8;
+  color: #2a1608;
+  font-weight: 800;
+  box-shadow: 0 0 0 1px rgba(232, 168, 124, .45);
+}
+.zone-legend {
+  margin-left: .75rem;
+  color: var(--hang-copper);
+  font-size: .78rem;
+  letter-spacing: .02em;
+}
+.zone-editor { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.zone-pill {
+  font-size: .72rem; color: var(--hang-copper);
+  border: 1px solid #4a3828; background: #2a2018;
+  padding: .15rem .45rem; border-radius: 999px; white-space: nowrap;
+}
+.zone-input { width: 92px; padding: .35rem .5rem; }
+.zone-sep { color: var(--hang-muted); }
+.btn-ghost {
+  background: transparent; color: var(--hang-muted);
+  border: 1px solid var(--line); font-weight: 400;
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--hang-metal); }
+.btn-mini {
+  margin-left: .35rem; padding: .1rem .4rem; font-size: .7rem;
+  background: #2a2018; color: var(--hang-copper);
+  border: 1px solid #4a3828; border-radius: 4px; font-weight: 400;
+}
+.tag-express {
+  color: #2a1608; background: var(--hang-copper);
+  padding: .1rem .45rem; border-radius: 999px;
+  font-size: .74rem; font-weight: 800; white-space: nowrap;
+}
+.tag-normal { color: var(--hang-muted); font-size: .78rem; white-space: nowrap; }
+.check-pill {
+  display: inline-flex; align-items: center; gap: .35rem;
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: .35rem .6rem; font-size: .88rem; color: var(--hang-tag);
+}
+.check-pill input { accent-color: var(--hang-copper); width: auto; margin: 0; }
+.hint { color: var(--hang-muted); font-size: .82rem; margin: -.5rem 0 1rem; }

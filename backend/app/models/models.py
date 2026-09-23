@@ -19,6 +19,9 @@ class HangRail(Base):
     store_id: Mapped[int] = mapped_column(ForeignKey("stores.id"))
     label: Mapped[str] = mapped_column(String(40))
     length_cm: Mapped[float] = mapped_column(Float)
+    # 快递加急专区，半开区间 [express_start_cm, express_end_cm)；均为 NULL 表示未划专区
+    express_start_cm: Mapped[float | None] = mapped_column(Float, nullable=True)
+    express_end_cm: Mapped[float | None] = mapped_column(Float, nullable=True)
     store: Mapped[Store] = relationship(back_populates="rails")
     placements: Mapped[list["RailPlacement"]] = relationship(back_populates="rail")
 
@@ -31,6 +34,7 @@ class WorkOrder(Base):
     garment_name: Mapped[str] = mapped_column(String(80))
     length_cm: Mapped[float] = mapped_column(Float)
     status: Mapped[str] = mapped_column(String(20), default="ready")  # ready/hung/picked/overdue
+    is_express: Mapped[int] = mapped_column(Integer, default=0)  # 1 = 快递加急
     due_at: Mapped[datetime] = mapped_column(DateTime)
     hung_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 

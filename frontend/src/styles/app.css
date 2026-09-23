@@ -278,3 +278,81 @@ button {
   display: flex; align-items: center; justify-content: center;
   padding: 0 4px; overflow: hidden; white-space: nowrap;
 }
+
+/* —— 快递专区 —— */
+.hint { color: var(--hang-muted); font-size: .85rem; margin-top: -.4rem; margin-bottom: 1rem; max-width: 70ch; }
+.zone-input { width: 88px; padding: .35rem .5rem; }
+.zone-actions { white-space: nowrap; }
+.zone-msg { margin-left: .5rem; font-size: .78rem; }
+.btn-ghost {
+  background: transparent;
+  color: var(--hang-copper);
+  border: 1px solid var(--line);
+  font-weight: 600;
+  margin-left: .35rem;
+}
+.btn-ghost:hover { border-color: var(--hang-copper); }
+.btn-xs { padding: .15rem .45rem; font-size: .72rem; margin-left: .5rem; }
+.express-badge {
+  font-size: .72rem;
+  color: var(--hang-muted);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: .08rem .35rem;
+  white-space: nowrap;
+}
+.express-badge--on {
+  color: #ffd9a8;
+  background: rgba(232, 168, 124, .16);
+  border-color: var(--hang-copper);
+  font-weight: 700;
+}
+
+/* 占位图：专区底纹（半开区间，半透明斜纹 + 虚线边界，普通占位段浮于其上但落不进来） */
+.zone-band {
+  position: absolute;
+  top: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(232, 168, 124, .20) 0,
+    rgba(232, 168, 124, .20) 6px,
+    rgba(232, 168, 124, .07) 6px,
+    rgba(232, 168, 124, .07) 12px
+  );
+  border-left: 2px dashed var(--hang-copper);
+  border-right: 2px dashed var(--hang-copper);
+  pointer-events: none;
+  z-index: 0;
+}
+.zone-band-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: rgba(245, 235, 224, .55);
+  white-space: nowrap;
+}
+.seg { z-index: 1; }
+.seg--express {
+  background: linear-gradient(180deg, #e08a5a, #c2603a);
+  border-color: #ffd9a8;
+  box-shadow: 0 0 6px rgba(232, 168, 124, .55);
+  font-weight: 700;
+}
+.zone-legend {
+  display: flex; align-items: center; gap: .4rem;
+  color: var(--hang-muted); font-size: .78rem; margin-bottom: .8rem;
+}
+.zone-legend-swatch {
+  display: inline-block; width: 16px; height: 12px; border-radius: 2px;
+  margin-left: .8rem; position: relative;
+}
+.zone-legend-swatch.zone-band { position: relative; top: 0; bottom: auto; }
+.seg-express-swatch { background: linear-gradient(180deg, #e08a5a, #c2603a); border: 1px solid #ffd9a8; }
+.zone-range { color: var(--hang-copper); font-style: normal; }
+.hang-tag-body--express {
+  background: linear-gradient(180deg, #ffd9a8, #e8a87c);
+  border: 1px solid #c2603a;
+}

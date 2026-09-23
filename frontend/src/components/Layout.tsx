@@ -15,7 +15,9 @@ type Occ = {
   rail_id: number;
   label: string;
   length_cm: number;
-  segments: { ticket_code: string; garment_name: string; start_cm: number; end_cm: number }[];
+  express_zone_start_cm: number | null;
+  express_zone_end_cm: number | null;
+  segments: { ticket_code: string; garment_name: string; is_express: boolean; start_cm: number; end_cm: number }[];
 };
 type Order = { id: number; ticket_code: string; garment_name: string; status: string; due_at?: string };
 
@@ -105,8 +107,8 @@ export default function Layout() {
                 title={`${t.rail} ${t.start_cm}-${t.end_cm}cm`}
               >
                 <div className="hang-tag-hook" />
-                <div className="hang-tag-body">
-                  <div className="hang-tag-code">{t.ticket_code}</div>
+                <div className={`hang-tag-body${t.is_express ? " hang-tag-body--express" : ""}`}>
+                  <div className="hang-tag-code">{t.is_express ? "⚡ " : ""}{t.ticket_code}</div>
                   <div className="hang-tag-name">{t.garment_name}</div>
                   <div className="hang-tag-rail">{t.rail}</div>
                 </div>
